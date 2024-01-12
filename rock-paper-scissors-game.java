@@ -43,6 +43,35 @@ public class RockPaperScissors extends JFrame implements ActionListener {
         String result = determineWinner(userMove, computerMove);
         resultLabel.setText("You chose " + userMove + ". Computer chose " + computerMove + ". " + result);
     }
+private String generateComputerMove() {
+        Random random = new Random();
+        int move = random.nextInt(3);
+        switch (move) {
+            case 0:
+                return "Rock";
+            case 1:
+                return "Paper";
+            case 2:
+                return "Scissors";
+            default:
+                return "";
+        }
+    }
 
+    private String determineWinner(String userMove, String computerMove) {
+        if (userMove.equals(computerMove)) {
+            return "It's a tie!";
+        } else if ((userMove.equals("Rock") && computerMove.equals("Scissors")) ||
+                   (userMove.equals("Paper") && computerMove.equals("Rock")) ||
+                   (userMove.equals("Scissors") && computerMove.equals("Paper"))) {
+            return "You win!";
+        } else {
+            return "Computer wins!";
+        }
+    }
+
+    public static void main(String[] args) {
+        new RockPaperScissors();
+    }
     
 }
