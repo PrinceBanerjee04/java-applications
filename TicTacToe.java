@@ -38,7 +38,7 @@ public class TicTacToe extends JFrame implements ActionListener {
         checkForWin();
     }
 private void checkForWin() {
-        
+        // Check rows, columns, and diagonals for a win
         for (int i = 0; i < 3; i++) {
             if (!buttons[i][0].getText().equals("") &&
                 buttons[i][0].getText().equals(buttons[i][1].getText()) &&
@@ -69,7 +69,7 @@ private void checkForWin() {
             resetGame();
             return;
         }
-        
+        // Check for a draw
         boolean draw = true;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
